@@ -1,0 +1,9 @@
+---
+- name: My first AAP job
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Test Ansible
+      ansible.builtin.debug:
+        msg: "Hello from Ansible Automation Platform!"
