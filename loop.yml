@@ -1,0 +1,30 @@
+- name: "Web server setup"
+  hosts: localhost
+  become: true
+  vars: 
+    packages:
+     - git
+     - curl
+     - vim
+    
+    users:
+     - devops
+     - ansible
+
+  tasks:
+    - name: Install git
+      ansible.builtin.package:
+         name: "{{ item }}"
+         state: present
+      loop: "{{ packages }}"
+ 
+    - name: Create user
+      ansible.builtin.user:
+          name: "{{ item }}"
+          state: present
+      loop: "{{ users }}"
+
+    - name: Start service
+      ansible.builtin.service:
+          name: sshd
+          state: started
