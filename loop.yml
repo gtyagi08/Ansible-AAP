@@ -28,3 +28,8 @@
       ansible.builtin.service:
           name: sshd
           state: started
+
+    - name: Start httpd service
+      ansible.builtin.service:
+          name: httpd
+          state: started
