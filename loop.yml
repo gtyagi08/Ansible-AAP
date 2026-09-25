@@ -14,7 +14,7 @@
 
   tasks:
     - name: Install git
-      ansible.builtin.package:
+      ansible.builtin.yum:
          name: "{{ item }}"
          state: present
       loop: "{{ packages }}"
