@@ -1,6 +1,7 @@
 - name: "Web server setup"
   hosts: localhost
   become: true
+  gather_facts: false
   vars: 
     packages:
      - git
